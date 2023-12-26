@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="漫画,动漫,视频" />
+    <meta
+      name="viewport"
+      content="width=device-width,user-scalable=no,viewport-fit=cover"
+    />
+    <meta name="description" content="咚咚动漫快速导航" />
+    <title>导航</title>
+    <script type="text/javascript" src="clipboard.min.js"></script>
+  </head>
+
+  <body>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <span style="color: red">**重要提示**</span>
+        <span>您当前的环境不支持，请复制到浏览器中打开</span>
+      </div>
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          align-items: center;
+        "
+      >
+        <div>http://dfa.dd2155m.com</div>
+        <button id="copyButton" style="padding: 8px 10px">点击复制</button>
+      </div>
+
+      <div id="tips" style="color: red"></div>
+
+      <div style="display: flex; justify-content: center; align-items: center">
+        <img src="qcode.png" style="width: 200px; height: 200px" />
+      </div>
+    </div>
+  </body>
+
+  <script text="text/javascript">
+    const tips = document.querySelector("#tips");
+
+    const clipboard = new ClipboardJS("#copyButton", {
+      text: function (trigger) {
+        return "http://dfa.dd2155m.com";
+      },
+    });
+
+    clipboard.on("success", function (e) {
+      tips.innerText = "复制成功";
+      setTimeout(() => (tips.innerText = ""), 3000);
+    });
+
+    clipboard.on("error", function (e) {
+      tips.innerText =
+        "复制失败，你可手动长按链接选择复制，" +
+        "也可长按下方二维码进行识别跳转。";
+      setTimeout(() => (tips.innerText = ""), 3000);
+    });
+  </script>
+</html>
